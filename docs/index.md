@@ -26,8 +26,8 @@ features:
     linkText: 查看配件解析
   - title: 找到對應部位
     details: 依肩背、腰臀、大腿與小腿，閱讀對應操作說明。
-    link: /instruction#body-guide
-    linkText: 閱讀部位教學
+    link: /body-guide
+    linkText: 探索 3D 人體導覽
   - title: 守住安全界線
     details: 先確認禁忌部位、需先諮詢的情況，以及常見誤區。
     link: /instruction#safety
@@ -49,11 +49,11 @@ features:
       <p>先認識按摩頭與基本原則，讓工具配合你的需求。</p>
       <span class="reading-link">配件與原理 <span aria-hidden="true">↗</span></span>
     </a>
-    <a class="reading-card" href="./instruction#body-guide">
+    <a class="reading-card" href="./body-guide">
       <span class="reading-number">02 / FIND YOUR FOCUS</span>
       <h3>找到想了解的部位</h3>
-      <p>按部位閱讀教學，確認應避開的區域與操作重點。</p>
-      <span class="reading-link">分部位指南 <span aria-hidden="true">↗</span></span>
+      <p>轉動 3D 人體，辨識肌群位置與禁止施打的區域。</p>
+      <span class="reading-link">3D 人體導覽 <span aria-hidden="true">↗</span></span>
     </a>
     <a class="reading-card" href="./instruction#routines">
       <span class="reading-number">03 / MAKE IT A ROUTINE</span>

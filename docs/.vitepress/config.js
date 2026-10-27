@@ -36,6 +36,7 @@ export default defineConfig(async () => {
       siteTitle: '筋膜槍衛教指南',
       nav: [
         { text: '首頁', link: '/', activeMatch: '^/$' },
+        { text: '3D 人體導覽', link: '/body-guide' },
         { text: '使用指南 / 實戰教學', link: '/instruction' },
         { text: '安全禁忌', link: '/instruction#safety' },
         { text: 'FAQ', link: '/instruction#faq' }

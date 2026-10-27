@@ -31,6 +31,7 @@ VITEPRESS_BASE=/Massage_device/ npm run preview -- --host 0.0.0.0 --port 4173
 
 - `docs/index.md`：官方 Hero、特色卡片與閱讀路線。
 - `docs/instruction.md`：六大單元的完整教學；請使用小寫檔名。
+- `docs/body-guide.md`：3D 人體肌群與禁止施打區互動導覽；首頁、導覽列與分部位教學皆可進入。
 - `docs/.vitepress/config.js`：繁體中文介面、本地搜尋與導覽。側邊欄使用 VitePress Markdown 解析器讀取二至四級標題，自動對應實際錨點；開發時修改指南會重啟伺服器更新目錄。
 - `docs/.vitepress/theme/Layout.vue`：透過官方 `home-hero-after` 插槽在首頁 Hero 下方嵌入 3D 模型。
 
@@ -49,3 +50,20 @@ VITEPRESS_BASE=/Massage_device/ npm run preview -- --host 0.0.0.0 --port 4173
 Three.js 與 OrbitControls 僅於 `onMounted` 動態載入；離開頁面會清除動畫、事件、觀察器及 GPU 資源。尊重減少動態效果偏好，離開可視區或背景分頁會暫停動畫。需要支援 WebGL 的瀏覽器；不支援時顯示替代說明，仍可閱讀配件資訊。模型為結構示意，不代表實際操作方式。
 
 教學資訊不取代專業醫療診斷或治療，實際使用前請閱讀安全禁忌與產品說明。
+
+## 3D 人體肌群導覽
+
+`HumanBody3D.vue` 已全域註冊，亦可在其他 Markdown 頁面使用：
+
+```vue
+<ClientOnly>
+  <HumanBody3D />
+</ClientOnly>
+```
+
+- 以原生幾何體建立半透明、線框人體，不需外部模型。滑鼠左鍵／單指旋轉、右鍵平移、滾輪縮放、雙指縮放與平移；也提供按鈕及鍵盤操作。
+- 正面、背面與足底預設視角；14 個區域、32 個表面熱點。紅色禁止施打區與綠色肌群參考區有文字及符號區分，不單靠顏色傳達資訊。
+- 熱點使用世界座標投影到畫面，依朝向與射線遮擋隱藏；選取清單會切換到該部位的視角並顯示說明。
+- `human-body-zones.js` 保存部位說明、熱點座標與區域示意。座標不是精準解剖定位；綠色不代表適合每個人使用，原案檔位也不是跨機型的通用建議。
+- `human-body-scene.js` 由 `onMounted` 延遲載入；離頁會釋放所有幾何體、材質、事件、觀察器與 WebGL 資源。背景分頁及畫面外會停用渲染；減少動態效果模式使用事件驅動渲染，並停用熱點脈衝。
+- 無 WebGL 時仍可操作完整部位清單，閱讀配件參考及所有禁忌說明。
