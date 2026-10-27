@@ -1,6 +1,6 @@
-# 筋膜槍使用與衛教指南
+# 筋膜舒緩村 · Fascia Care Village
 
-使用 VitePress、Vue 3 與 Three.js 建立的繁體中文教學網站，教學內容位於 `docs/instruction.md`。
+使用 VitePress（Vite + Vue 3）與 Three.js 建立的繁體中文互動衛教網站。首頁為七站低多邊形村落；完整文字指南仍位於 `docs/instruction.md`。
 
 ## 開發
 
@@ -18,6 +18,12 @@ npm run build
 npm run preview -- --host 0.0.0.0
 ```
 
+```sh
+npm test
+```
+
+測試使用 Node 內建測試工具，檢查七站可達性、障礙避讓、島嶼邊界及無路可走情況，無需額外測試依賴。
+
 靜態網站輸出至 `docs/.vitepress/dist/`。部署於子目錄時，請透過 `VITEPRESS_BASE` 設定對應路徑；本機開發預設仍為 `/`。
 
 例如，發布至 GitHub Pages 的 `/Massage_device/` 路徑：
@@ -29,11 +35,27 @@ VITEPRESS_BASE=/Massage_device/ npm run preview -- --host 0.0.0.0 --port 4173
 
 ## 內容與導覽
 
-- `docs/index.md`：官方 Hero、特色卡片與閱讀路線。
+- `docs/index.md`：筋膜舒緩村首頁；由 theme Layout 的 `village` frontmatter 切換完整探索介面。
+- `docs/overview.md`：保留原本的官方 Hero、特色卡片與筋膜槍 3D 器材圖鑑。
 - `docs/instruction.md`：六大單元的完整教學；請使用小寫檔名。
 - `docs/body-guide.md`：3D 人體肌群與禁止施打區互動導覽；首頁、導覽列與分部位教學皆可進入。
 - `docs/.vitepress/config.js`：繁體中文介面、本地搜尋與導覽。側邊欄使用 VitePress Markdown 解析器讀取二至四級標題，自動對應實際錨點；開發時修改指南會重啟伺服器更新目錄。
-- `docs/.vitepress/theme/Layout.vue`：透過官方 `home-hero-after` 插槽在首頁 Hero 下方嵌入 3D 模型。
+- `docs/.vitepress/theme/Layout.vue`：切換村落與標準文件佈局；器材圖鑑頁透過官方 `home-hero-after` 插槽嵌入筋膜槍模型。
+
+## 村落架構
+
+`docs/.vitepress/components/village/`：
+
+- `FasciaVillage.vue`：探索模式、七站進度、滑鼠／觸控入口、手機搖桿與 2D 地圖降級。
+- `scene.js`：等距正交相機、六角島嶼、程序化建築樹木與角色、OrbitControls、Raycasting、角色移動及靠近站點事件。
+- `navigation.js`：A* 尋路、路徑平滑及圓形障礙／島嶼邊界判斷。角色以固定每秒速率移動，不依裝置幀率加速。
+- `VillageDialog.vue`：原生 dialog、可鍵盤切換的分頁、按摩頭圖鑑、力道示意、FAQ、重點收合及裝置支援的語音朗讀。
+- `stations.js`：七站座標、圖文、分頁與原指南連結；新增內容優先在此維護。
+- `village.css`：暖色 HUD、毛玻璃彈窗與手機版排版。
+
+滑鼠左鍵拖曳旋轉，右鍵或雙指平移、滾輪縮放；點地面沿避障路徑移動，點建築或其標籤前往站點；WASD／方向鍵與手機搖桿提供自由行走。走近站點會聚焦鏡頭並開啟衛教；關閉後必須離開一定距離才會再次自動觸發，也可明確點選重新參訪。循序模式支援上一站、下一站；禁忌速覽直接導向守護者哨塔。
+
+WebGL 只在 `onMounted` 建立，所有材質、幾何體、RAF、事件與觀察器會在離頁釋放。背景分頁或切換平面地圖會暫停 3D 迴圈；手機預設流暢模式並限制像素比。無 WebGL 時自動切換完整可操作的七站 2D 地圖，所有彈窗內容與導覽仍可使用。村落不載入外部模型、材質或後端 API。
 
 ## 3D 組件
 

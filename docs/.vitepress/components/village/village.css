@@ -1,0 +1,198 @@
+.fascia-village { --village-ink:#2e5042; --village-green:#3f765b; --village-paper:#fffcf3; --village-line:#d8dfca; min-height:100svh; color:var(--village-ink); background:#e6ecda; font-family:var(--vp-font-family-base); color-scheme:light; }
+.fascia-village:focus { outline:none; }
+.fascia-village button,.fascia-village a { -webkit-tap-highlight-color:transparent; }
+.fascia-village button { cursor:pointer; font-family:inherit; }
+.fascia-village button:disabled { opacity:.4; cursor:default; }
+.fascia-village :focus-visible { outline:3px solid #44795c; outline-offset:4px; }
+.village-header { position:relative; z-index:20; height:76px; display:flex; gap:28px; align-items:center; justify-content:space-between; padding:0 30px; background:var(--village-paper); border-bottom:1px solid var(--village-line); }
+.village-brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+.village-brand-icon { display:grid; place-items:center; width:40px; height:40px; border:1px solid #9dbb96; border-radius:13px; color:#659261; font-size:30px; background:#f3f5e6; }
+.village-brand h1 { margin:0; font-size:22px; font-weight:650; letter-spacing:.05em; line-height:1.4; }
+.village-brand small { font-size:8px; letter-spacing:.2em; color:#7a8d75; }
+.village-modes { display:flex; gap:4px; padding:4px; border:1px solid var(--village-line); border-radius:10px; background:#f5f6ed; }
+.village-modes button { min-height:35px; padding:5px 17px; border-radius:7px; font-size:12px; color:#6b7b62; }
+.village-modes button[aria-pressed=true] { background:#3f765b; color:#fffdf4; box-shadow:0 2px 5px #315d3320; }
+.village-header-links { display:flex; align-items:center; gap:22px; font-size:12px; }
+.village-header-links a { color:#5e725c; }
+.village-header-links button { display:flex; gap:8px; align-items:center; min-height:40px; padding:8px 13px; border:1px solid var(--village-line); border-radius:9px; }
+.village-world { position:relative; height:calc(100svh - 188px); min-height:490px; isolation:isolate; background:#d5e5d9; overflow:hidden; }
+.village-canvas { position:absolute; inset:0; cursor:grab; }
+.village-canvas:active { cursor:grabbing; }
+.village-canvas:focus-visible { outline-offset:-6px; }
+.village-canvas canvas { display:block; width:100%; height:100%; }
+.village-canvas-hidden { visibility:hidden; }
+.village-labels { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.village-labels-loading { visibility:hidden; }
+.village-label { position:absolute; left:0; top:0; display:flex; gap:7px; align-items:center; justify-content:center; min-height:32px; padding:5px 12px; color:#376047; border:1px solid #d6ddbc; border-radius:18px; background:#fffdeeeb; box-shadow:0 3px 8px #3c593518; white-space:nowrap; font-size:11px; pointer-events:auto; }
+.village-label[hidden] { display:none; }
+.village-label b { font-size:9px; font-weight:500; opacity:.75; }
+.village-label i { font-size:10px; font-style:normal; color:#3e8663; }
+.village-label:hover,.village-label.label-active { background:#3f765b; color:#fffdee; border-color:#3f765b; z-index:3; }
+.village-label.label-active i { color:#fffdee; }
+.village-label.label-rose { border-color:#c48670; color:#975247; }
+.village-label.label-rose:hover,.village-label.label-rose.label-active { background:#a65d4f; color:#fff8eb; }
+.village-welcome { position:absolute; z-index:4; top:24px; left:24px; max-width:300px; padding:20px 23px; border:1px solid #fbf9e7b0; border-radius:15px; background:#fffdf0df; box-shadow:0 8px 30px #31523c0a; backdrop-filter:blur(10px); pointer-events:none; }
+.village-welcome>span { display:block; margin-bottom:10px; color:#7a906c; font-size:9px; letter-spacing:.09em; }
+.village-welcome h2 { margin:0 0 9px; font-family:Georgia,'Noto Serif TC','PMingLiU',serif; font-size:25px; font-weight:600; line-height:1.5; letter-spacing:.01em; }
+.village-welcome p { margin:0; color:#6b8063; font-size:11px; line-height:1.8; }
+.village-settings { position:absolute; top:24px; right:24px; z-index:8; }
+.village-settings summary { list-style:none; padding:13px 17px; border:1px solid var(--village-line); border-radius:11px; background:#fffdf0ed; font-size:12px; cursor:pointer; box-shadow:0 3px 10px #31523c0a; }
+.village-settings summary::-webkit-details-marker { display:none; }
+.village-settings>div { display:grid; gap:8px; width:215px; margin-top:8px; padding:14px; border:1px solid var(--village-line); border-radius:12px; background:var(--village-paper); box-shadow:0 12px 30px #31523c20; }
+.village-settings button,.village-settings a { padding:10px 12px; border-radius:6px; background:#f0f4e7; text-align:left; font-size:12px; }
+.village-settings label { display:flex; flex-wrap:wrap; align-items:center; gap:7px; padding:10px; font-size:12px; }
+.village-settings label span { width:100%; padding-left:21px; color:#7d8d72; font-size:10px; }
+.village-settings input { accent-color:#4b7d5c; }
+.village-world-tools { position:absolute; bottom:28px; right:25px; z-index:5; display:flex; gap:5px; padding:5px; border:1px solid #d8dfc9; border-radius:11px; background:#fffdf1e8; }
+.village-world-tools button { width:35px; height:34px; border-radius:6px; font-size:19px; }
+.village-world-tools button:hover { background:#e9efdc; }
+.village-keyboard-hint { position:absolute; bottom:32px; left:25px; color:#698465; font-size:10px; letter-spacing:.02em; pointer-events:none; }
+.village-joystick-wrap { display:none; position:absolute; bottom:18px; left:20px; z-index:5; text-align:center; }
+.village-joystick { position:relative; display:grid; place-items:center; width:102px; height:102px; border:1px solid #6d8f6666; border-radius:50%; background:#f9fbe680; backdrop-filter:blur(4px); touch-action:none; }
+.village-joystick::before { content:'✛'; position:absolute; color:#72916c66; font-size:65px; font-weight:300; }
+.village-joystick>span { position:relative; width:40px; height:40px; border-radius:50%; background:#4e8263e8; border:3px solid #fcf9e8c9; box-shadow:0 3px 7px #31523c35; pointer-events:none; }
+.village-joystick-wrap>span { display:block; margin-top:5px; color:#68825d; font-size:9px; }
+.village-guide-bar { position:relative; display:flex; gap:24px; align-items:center; justify-content:center; min-height:88px; padding:12px 25px; border-top:1px solid var(--village-line); background:var(--village-paper); }
+.village-guide-prev { display:flex; gap:12px; align-items:center; padding:12px; min-width:100px; color:#617b57; font-size:13px; }
+.village-guide-current { width:380px; text-align:center; }
+.village-guide-current>span { display:flex; gap:12px; align-items:center; justify-content:center; margin-bottom:3px; color:#81916e; font-size:9px; }
+.village-guide-current i { font-style:normal; font-size:8px; }
+.village-guide-current strong { display:block; font-size:15px; font-weight:600; line-height:1.6; }
+.village-guide-current small { display:block; color:#81916e; font-size:10px; line-height:1.8; }
+.fascia-village .village-primary { min-height:44px; padding:11px 22px; background:#3f765b; color:#fffcef; border:1px solid #3f765b; border-radius:9px; font-size:12px; font-weight:550; }
+.village-primary:hover { background:#315e47; }
+.village-guide-next { display:flex; gap:20px; align-items:center; justify-content:center; min-width:135px; }
+.village-medical-note { margin:0; padding:3px 16px 5px; background:var(--village-paper); text-align:center; color:#819075; font-size:9px; line-height:1.6; }
+.village-medical-note a { margin-left:6px; text-decoration:underline; text-underline-offset:3px; }
+.village-station-menu { position:absolute; z-index:12; top:20px; right:20px; width:335px; max-height:calc(100% - 50px); padding:17px; overflow-y:auto; border:1px solid var(--village-line); border-radius:16px; background:#fffdf4f5; box-shadow:0 15px 50px #264c3a25; backdrop-filter:blur(16px); }
+.village-station-menu header { display:flex; align-items:center; justify-content:space-between; padding:0 3px 12px; font-size:14px; }
+.village-station-menu header button { width:30px; height:30px; font-size:24px; }
+.village-station-menu>button { display:flex; align-items:center; gap:13px; width:100%; padding:12px 7px; border-top:1px solid #e6e9da; text-align:left; }
+.village-station-menu>button b { font-size:11px; color:#8a9a78; font-weight:500; }
+.village-station-menu>button strong { display:block; font-size:13px; font-weight:550; }
+.village-station-menu>button small { display:block; margin-top:3px; font-size:10px; color:#839274; }
+.village-station-menu>button i { margin-left:auto; font-size:13px; font-style:normal; }
+.village-flat-map { position:absolute; width:min(930px,90%); aspect-ratio:800/520; top:50%; left:50%; transform:translate(-50%,-50%); }
+.village-flat-map>svg { width:100%; height:100%; filter:drop-shadow(0 16px 0 #b5b190); }
+.village-flat-station { position:absolute; display:grid; place-items:center; min-width:90px; min-height:65px; padding:8px 13px; transform:translate(-50%,-50%); border:1px solid #cbd4b6; border-radius:11px; background:#fffbeded; box-shadow:0 4px 10px #31523c12; }
+.village-flat-station>span { font-size:23px; color:#6c9270; }
+.village-flat-station strong { font-size:11px; font-weight:550; }
+.village-flat-station i { position:absolute; top:-5px; right:-5px; padding:1px 5px; border-radius:50%; background:#4b7d5a; color:white; font-size:9px; font-style:normal; }
+.flat-rose { border-color:#c78d7a; }
+.flat-rose>span { color:#a45a4e; }
+.village-loading { position:absolute; inset:0; z-index:3; display:flex; gap:15px; flex-direction:column; align-items:center; justify-content:center; color:#6e8b63; background:#e4ebd7c9; backdrop-filter:blur(4px); font-size:13px; }
+.village-loading button { padding:8px 13px; border:1px solid #9eaf90; border-radius:6px; font-size:11px; }
+.village-sr-only { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+
+.village-dialog { width:min(620px,calc(100% - 32px)); max-height:min(820px,calc(100svh - 36px)); margin:auto; padding:0; overflow:auto; color:#34513f; border:1px solid #e3e7d3; border-radius:20px; background:#fffdf6f7; box-shadow:0 25px 90px #18332435; overscroll-behavior:contain; }
+.village-dialog::backdrop { background:#2c493754; backdrop-filter:blur(5px); }
+.village-dialog[open] { animation:village-dialog-enter .18s ease-out; }
+.village-dialog-header { position:sticky; top:0; z-index:2; display:flex; gap:15px; align-items:center; padding:24px 26px 20px; border-bottom:1px solid #e4e8d7; background:#fffcf5f5; backdrop-filter:blur(15px); }
+.village-dialog-icon { display:grid; place-items:center; width:48px; height:48px; flex-shrink:0; border:1px solid #d5dfc8; border-radius:14px; background:#edf1df; color:#638160; font-size:25px; }
+.village-dialog-kicker { font-size:10px; color:#829071; letter-spacing:.03em; }
+.village-dialog-header h2 { margin:4px 0 0; padding:0; border:0; font-size:23px; line-height:1.5; font-weight:600; }
+.village-dialog-close { margin-left:auto; width:40px; height:40px; border:1px solid #e1e5d1; border-radius:50%; font-size:25px; }
+.village-dialog-tabs { display:flex; gap:18px; padding:0 28px; border-bottom:1px solid #e1e5d5; }
+.village-dialog-tabs button { min-height:48px; padding:10px 2px; border-bottom:2px solid transparent; color:#7d8d6f; font-size:12px; white-space:nowrap; }
+.village-dialog-tabs button[aria-selected=true] { color:#3f765b; border-bottom-color:#3f765b; font-weight:600; }
+.village-dialog-body { padding:24px 28px 12px; outline-offset:-4px; }
+.village-dialog-lead { margin:0 0 22px; color:#43634c; font-size:16px; line-height:1.85; font-weight:550; }
+.village-steps { display:grid; gap:13px; margin:0 0 22px; padding:0; list-style:none; }
+.village-steps li { display:flex; gap:13px; align-items:flex-start; padding:14px; border:1px solid #e3e7d5; border-radius:9px; background:#f5f6eb; }
+.village-steps li>span { display:grid; place-items:center; flex-shrink:0; width:23px; height:23px; border-radius:50%; background:#e1e9d5; color:#6d8a5f; font-size:10px; }
+.village-steps p { margin:0; color:#657a5c; font-size:13px; line-height:1.85; }
+.village-note { margin:18px 0; padding:13px 15px; border-left:3px solid #d4b77a; border-radius:0 7px 7px 0; background:#fbf0d8; color:#8a754d; font-size:12px; line-height:1.85; }
+.village-note-danger { border-left-color:#ba6a58; background:#fbede5; color:#a35547; }
+.village-force { margin:16px 0; padding:15px; border:1px solid #dbe2c9; border-radius:8px; background:#edf2e1; }
+.village-force>div { display:flex; gap:20px; align-items:center; justify-content:space-between; }
+.village-force strong { color:#5a7850; font-size:12px; font-weight:550; }
+.village-force small { display:block; margin-top:6px; color:#849173; font-size:10px; line-height:1.7; }
+.force-bars { display:flex; gap:4px; }
+.force-bars i { width:17px; height:9px; border:1px solid #c7d4b5; border-radius:2px; background:#dde5d1; }
+.force-bars i.filled { background:#7eaa74; border-color:#7eaa74; }
+.village-heads { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin:0 0 16px; }
+.village-heads button { display:grid; gap:8px; padding:14px 4px 11px; border:1px solid #dbe2cc; border-radius:9px; background:#f3f5e8; color:#75886a; font-size:11px; }
+.village-heads button>span { font-size:27px; line-height:1; color:#79936c; }
+.village-heads button[aria-pressed=true] { border-color:#699368; background:#e7efda; color:#426a42; }
+.village-head-detail { margin:0 0 20px; padding:17px 19px; border:1px solid #dce4cc; border-radius:9px; background:#f0f4e5; }
+.village-head-detail strong { font-size:14px; font-weight:600; }
+.village-head-detail p { margin:8px 0; font-size:13px; line-height:1.8; color:#627b55; }
+.village-head-detail small { display:block; color:#8a795b; font-size:11px; line-height:1.8; }
+.village-head-detail a,.village-tab-action { display:inline-block; margin-top:13px; color:#48724a; font-size:12px; font-weight:550; }
+.village-danger-tags { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin:0 0 20px; padding:0; list-style:none; }
+.village-danger-tags li { display:flex; align-items:center; gap:9px; padding:12px; border:1px solid #e3c8b9; border-radius:7px; background:#fbede5; color:#a3614f; font-size:12px; line-height:1.6; }
+.village-danger-tags li span { display:grid; place-items:center; flex-shrink:0; width:17px; height:17px; border:1px solid #c78a73; border-radius:50%; font-size:10px; }
+.dialog-danger .village-dialog-icon { background:#f9e8df; border-color:#e4c4b3; color:#ad6c56; }
+.village-faqs details { margin-bottom:9px; padding:15px; border:1px solid #dfe5ce; border-radius:8px; background:#f4f6e9; }
+.village-faqs summary { font-size:13px; cursor:pointer; color:#53744e; }
+.village-faqs p,.village-takeaway p { margin:10px 0 0; color:#7b8b6c; font-size:12px; line-height:1.9; }
+.village-takeaway { padding:13px 0 0; margin-top:17px; border-top:1px solid #e2e7d3; }
+.village-takeaway summary { color:#7e8e6d; font-size:11px; cursor:pointer; }
+.village-dialog-utility { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; padding:8px 28px 18px; }
+.village-dialog-utility button { border:1px solid #dbe2cd; padding:8px 13px; border-radius:7px; color:#75886b; font-size:11px; }
+.village-dialog-utility>a { color:#67805d; font-size:11px; }
+.village-dialog-utility>span { width:100%; color:#997c59; font-size:10px; }
+.village-dialog-footer { position:sticky; bottom:0; display:flex; justify-content:space-between; gap:15px; padding:16px 28px; border-top:1px solid #e1e6d2; background:#fffdf4f7; backdrop-filter:blur(15px); }
+.village-dialog-footer>button:first-child { padding:10px 0; color:#7c8c6c; font-size:12px; }
+@keyframes village-dialog-enter { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+@media (max-width:1050px) { .village-header { gap:12px; padding:0 20px; } .village-header-links { gap:13px; } .village-header-links>a { display:none; } .village-modes button { padding:5px 12px; } }
+@media (max-width:760px) {
+  .village-header { height:112px; flex-wrap:wrap; align-content:center; row-gap:8px; padding:10px 17px; }
+  .village-brand { gap:8px; }
+  .village-brand-icon { width:32px; height:32px; font-size:24px; border-radius:10px; }
+  .village-brand h1 { font-size:18px; }
+  .village-brand small { font-size:6px; }
+  .village-header-links { margin-left:auto; }
+  .village-header-links button { min-height:34px; padding:4px 10px; font-size:11px; }
+  .village-modes { order:3; justify-content:center; width:100%; padding:3px; }
+  .village-modes button { flex:1; min-height:30px; padding:3px 5px; font-size:11px; }
+  .village-world { height:calc(100svh - 226px); min-height:420px; }
+  .village-welcome { top:14px; left:14px; padding:13px 16px; max-width:226px; border-radius:12px; }
+  .village-welcome>span { margin-bottom:5px; font-size:8px; }
+  .village-welcome h2 { margin-bottom:5px; font-size:19px; }
+  .village-welcome p { font-size:9px; }
+  .village-settings { top:14px; right:14px; }
+  .village-settings summary { padding:9px 12px; font-size:15px; }
+  .village-settings summary>span { display:none; }
+  .village-label { min-width:30px; min-height:30px; padding:4px 8px; font-size:10px; }
+  .village-label b { font-size:10px; }
+  .village-label:not(.label-active)>span { display:none; }
+  .village-label:not(.label-active)>i { display:none; }
+  .village-station-menu { top:12px; right:12px; left:12px; width:auto; max-height:calc(100% - 24px); }
+  .village-keyboard-hint { display:none; }
+  .village-world-tools { right:17px; bottom:25px; }
+  .village-world-tools button { width:31px; height:31px; }
+  .village-guide-bar { gap:8px; min-height:90px; padding:10px 12px; }
+  .village-guide-current { width:auto; min-width:0; flex:1; }
+  .village-guide-current strong { font-size:12px; }
+  .village-guide-current small { display:none; }
+  .village-guide-current>span { gap:5px; flex-direction:column; font-size:8px; }
+  .village-guide-prev { min-width:48px; padding:10px 4px; font-size:18px; }
+  .village-guide-prev>span { display:none; }
+  .fascia-village .village-guide-next { min-width:95px; min-height:42px; padding:9px 11px; gap:9px; font-size:11px; }
+  .village-medical-note { font-size:8px; }
+  .village-flat-map { width:98%; }
+  .village-flat-station { min-width:60px; min-height:53px; padding:4px 7px; border-radius:8px; }
+  .village-flat-station>span { font-size:20px; }
+  .village-flat-station strong { font-size:9px; }
+  .village-dialog { width:calc(100% - 20px); max-height:calc(100svh - 20px); border-radius:15px; }
+  .village-dialog-header { padding:18px 18px 15px; gap:10px; }
+  .village-dialog-icon { width:37px; height:37px; font-size:21px; border-radius:11px; }
+  .village-dialog-kicker { font-size:8px; }
+  .village-dialog-header h2 { font-size:20px; }
+  .village-dialog-close { width:34px; height:34px; flex-shrink:0; }
+  .village-dialog-tabs { padding:0 20px; gap:17px; overflow-x:auto; }
+  .village-dialog-tabs button { min-height:44px; font-size:11px; }
+  .village-dialog-body { padding:20px 19px 10px; }
+  .village-dialog-lead { font-size:15px; margin-bottom:16px; }
+  .village-steps li { gap:10px; padding:12px; }
+  .village-steps p { font-size:12px; }
+  .village-heads { gap:4px; }
+  .village-heads button { font-size:9px; padding:12px 2px; }
+  .village-heads button>span { font-size:23px; }
+  .village-danger-tags { grid-template-columns:1fr; gap:7px; }
+  .village-dialog-utility { padding:10px 20px 15px; }
+  .village-dialog-footer { padding:13px 19px; }
+}
+@media (pointer:coarse),(max-width:760px) { .village-joystick-wrap { display:block; } .village-keyboard-hint { display:none; } }
+@media (prefers-reduced-motion:reduce) { .village-dialog[open] { animation:none; } }

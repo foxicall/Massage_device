@@ -23,8 +23,8 @@ export default defineConfig(async () => {
   return {
     base,
     lang: 'zh-TW',
-    title: '筋膜槍使用全攻略與衛教手冊',
-    description: '從按摩頭選擇到分部位操作，用清楚易懂的教學，建立安全、自在的日常放鬆習慣。',
+    title: '筋膜舒緩村｜Fascia Care Village',
+    description: '走進筋膜舒緩村，透過七個 3D 互動站點，認識筋膜槍配件、放鬆方法、安全禁忌與就醫提醒。',
     cleanUrls: true,
     head: [
       ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
@@ -33,7 +33,7 @@ export default defineConfig(async () => {
     markdown: { headers: { level: [2, 3, 4] } },
     themeConfig: {
       logo: '/favicon.svg',
-      siteTitle: '筋膜槍衛教指南',
+      siteTitle: '筋膜舒緩村',
       nav: [
         { text: '首頁', link: '/', activeMatch: '^/$' },
         { text: '3D 人體導覽', link: '/body-guide' },
@@ -81,7 +81,7 @@ export default defineConfig(async () => {
       },
       footer: {
         message: '健康衛教參考資訊，不能取代專業醫療診斷與治療。',
-        copyright: '© 2026 筋膜槍使用與衛教指南'
+        copyright: '© 2026 筋膜舒緩村 · Fascia Care Village'
       }
     },
     vite: {
